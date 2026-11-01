@@ -27,3 +27,11 @@ jobs:
   deploy:
     needs: [build]
     runs-on: ubuntu-latest
+    steps: 
+    - name: '**PLACEHOLDER** Deploy to kubernetes'
+      run: echo placeholder for deployment
+    - name: Run containers
+      run: |
+        docker run -d ${{ secrets.DOCKER_USERNAME }}/al-app:latest
+        docker run -d ${{ secrets.DOCKER_USERNAME }}/al-db-loader:latest
+        docker run -d ${{ secrets.DOCKER_USERNAME }}/al-email:latest
